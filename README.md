@@ -1,3 +1,13 @@
+dependencies:
+
+* all that docker stuff  
+
+to start:
+
+`docker-machine start default`  (which right now is VB)
+
+`docker-compose up`
+
 stack:
 * docker
 * nginx
