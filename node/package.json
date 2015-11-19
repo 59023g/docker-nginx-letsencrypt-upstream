@@ -1,0 +1,12 @@
+{
+  "name": "node",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Michael Pierce",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.13.3",
+    "redis": "2.3.1"
+  }
+}
