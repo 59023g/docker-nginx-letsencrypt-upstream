@@ -1,4 +1,4 @@
-## stack:
+# stack:
 * docker
 * node
 * express
@@ -9,7 +9,8 @@
 * backbone?
 * babel?
 
-## todo:
+# todo:
+* nginx
 *  dockerfile
 *  init express
 * init static and build processes
