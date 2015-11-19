@@ -1,26 +1,26 @@
-# stack:
+stack:
 * docker
 * nginx
 * node
 * redis
 * express
-* browserify
-* react
-* gulp
+* browserify/webpack (gulp?)
+* react (routing?)
 * backbone?
 * babel?
 
-# todo:
-* nginx
-*  dockerfiles
-*  init express
+todo:
+* ~~nginx~~ ([reverse proxy?](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/))
+* ~~dockerfiles~~
+* ~~init express~~
 * deploy to DO
 * init static and build processes
-*  bundle, inject
+* bundle, inject
 * serve index
-*  basic UI
+* basic UI
 * POST text
-*  GET text
+* GET text
+* unit tests
 
 credits:
-* https://github.com/msanand/docker-workflow
+* docker-compose derived from: [msanand](https://github.com/msanand/docker-workflow)
