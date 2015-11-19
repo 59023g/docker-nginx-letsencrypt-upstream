@@ -1,17 +1,20 @@
 # stack:
 * docker
+* nginx
 * node
+* redis
 * express
 * browserify
 * react
 * gulp
-* redis
+
+
 * backbone?
 * babel?
 
 # todo:
 * nginx
-*  dockerfile
+*  dockerfiles
 *  init express
 * init static and build processes
 *  bundle, inject
