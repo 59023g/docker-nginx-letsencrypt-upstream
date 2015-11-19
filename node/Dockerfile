@@ -3,14 +3,17 @@ FROM debian:jessie
 
 MAINTAINER Michael Pierce <hi@mep.im>
 
-# Install Node.js and other dependencies
+# Install Node.js Dependencies
 RUN apt-get update && \
-    apt-get -y install curl && \
-    curl -sL https://deb.nodesource.com/setup | sudo bash - && \
-    apt-get -y install python build-essential nodejs
+    apt-get -y install curl git make
+
+RUN git clone https://github.com/tj/n && \
+    cd n && \
+    make install && \
+    n 5.0.0
 
 # Install nodemon
-RUN npm install -g nodemon
+RUN npm install -g nodemon@1.8.1
 
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json
