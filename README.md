@@ -20,5 +20,6 @@ To Start:
 ```
 docker-machine create --driver virtualbox <name>
 docker-machine start <name> 
-docker-compose up```
+docker-compose up
+```
 
