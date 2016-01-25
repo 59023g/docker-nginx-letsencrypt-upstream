@@ -17,8 +17,8 @@ Dependencies:
 
 To Start:
 
-if no machine has been built: `docker-machine create --driver virtualbox <name>`
-else: `docker-machine start default`  
-
-`docker-compose up`
+```
+docker-machine create --driver virtualbox <name>
+docker-machine start <name> 
+docker-compose up```
 
