@@ -7,7 +7,7 @@ MAINTAINER Michael Pierce <hi@mep.im>
 RUN apt-get update
 
 # Download and Install Nginx
-RUN apt-get install -y nginx=1.6.2-5
+RUN apt-get install -y nginx
 
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
