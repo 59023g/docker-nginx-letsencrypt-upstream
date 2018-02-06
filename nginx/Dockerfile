@@ -1,25 +1,22 @@
+# init and renew letsencrypt:
 
-FROM debian
+FROM nginx:1.11.3-alpine
 
-MAINTAINER Michael Pierce <hi@mep.im>
+RUN apk update \
+    && apk add --no-progress \
+            bash certbot openssl  \
+    && rm /var/cache/apk/* \
+    && echo "preparing certbot webroot" \
+    && mkdir -p /var/lib/certbot \
+    && echo "generating initial self-signed certificate" \
+    && mkdir -p /etc/nginx/ssl/example.net/ \
+    && openssl req -x509 -nodes -newkey rsa:4096 \
+           -keyout /etc/nginx/ssl/example.net/privkey.pem \
+           -out /etc/nginx/ssl/example.net/fullchain.pem \
+           -subj "/CN=example.net" \
+    && ln -sf /etc/nginx/ssl/example.net /etc/nginx/ssl/latest
 
-# Update the repository
-RUN apt-get update
+COPY default.conf /etc/nginx/conf.d/default.conf
+COPY certbot.sh /etc/nginx/ssl/
 
-# Download and Install Nginx
-RUN apt-get install -y nginx
-
-# Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/nginx.conf
-
-# Copy a configuration file from the current directory
-ADD nginx.conf /etc/nginx/
-
-# Append "daemon off;" to the configuration file
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
-# Expose ports
-EXPOSE 80
-
-# Set the default command to execute when creating a new container
-CMD service nginx start
+RUN chmod 777 -R /etc/nginx/ssl/certbot.sh
