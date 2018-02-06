@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Michael Pierce",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js "
+  },
   "dependencies": {
     "express": "4.13.3",
     "redis": "2.3.1"
