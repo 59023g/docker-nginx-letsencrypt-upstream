@@ -1,25 +1,29 @@
-59023c - Infrastructure
+#### Infrastructure
 
-Docker compose config for node and redis behind nginx on debian jessie.
+Docker compose config for proxy upstream node servers behind SSL ( Let's Encrypt ) Nginx on Debian Jessie. Personally I am not a huge Docker fan and err on the side of bash scripts and/or Lambda, but this may be valuable to you.
 
-Stack:
+#### Stack:
 * debian/jessie
 * docker
-* nginx
+* nginx ( Let's Encrypt )
 * node
-* redis
-* express
 
 
-Dependencies:
+#### Let's Encrypt:
+* make sure .env file is set-up
+* after its been built and up via docker-compose, install certs via `docker-compose exec nginx /etc/nginx/ssl/certbot.sh -v` ( see below )
 
-* all that docker stuff  
 
-To Start:
-
+#### Install
 ```
-~docker-machine create --driver virtualbox <name>~
-~docker-machine start <name> ~
-docker-compose up
+#!/bin/bash
+
+. make.sh
+docker-compose build
+docker-compose up -d
+# install certs
+docker-compose exec nginx /etc/nginx/ssl/certbot.sh -v
 ```
 
+#### Todo:
+* Cron task for cert updates
