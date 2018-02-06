@@ -10,10 +10,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/tj/n && \
     cd n && \
     make install && \
-    n 5.0.0
-
-# Install nodemon
-RUN npm install -g nodemon@1.8.1
+    n lts
 
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json
@@ -28,4 +25,4 @@ ADD . /src
 EXPOSE  8080
 
 # Run app using nodemon
-CMD ["nodemon", "/src/index.js"]
+CMD ["npm", "start"]
