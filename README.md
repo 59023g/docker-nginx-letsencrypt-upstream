@@ -27,3 +27,7 @@ docker-compose exec nginx /etc/nginx/ssl/certbot.sh -v
 
 #### Todo:
 * Cron task for cert updates
+
+
+#### Thanks:
+https://github.com/diresi
