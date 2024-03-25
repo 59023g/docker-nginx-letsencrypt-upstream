@@ -9,7 +9,7 @@
     "start": "node src/index.js "
   },
   "dependencies": {
-    "express": "4.13.3",
+    "express": "4.19.2",
     "redis": "2.3.1"
   }
 }
